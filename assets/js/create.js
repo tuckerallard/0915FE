@@ -32,6 +32,47 @@
 
  $(function(){
 
- 	//code goes here
+	$("#addEmployeeForm").validate({
+	  rules: {
+	    // firstName validation
+	    firstName: {
+	    	required: true,
+	    	minlength: 2
+	    },
+	    // lastName validation
+	     lastName: {
+	    	required: true,
+	    	minlength: 2
+	    },
+	    // email validation
+	    email: {
+	      required: true,
+	      email: true
+	    },
+	    // homePhone validation
+	    homePhone: {
+	    	phoneUS: true
+	    },
+	    // cellPhone validation
+	    cellPhone: {
+	    	phoneUS: true
+	    },
+	    // password validation
+	    password: {
+	    	required: true,
+	    	pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^\&*\)\(+=._-])[0-9a-zA-Z!@#\$%\^\&*\)\(+=._-]{8,}$/
+	    },
+    	password_verify: {
+      	equalTo: "#password"
+    }
+	},
+	messages: {
+	    password: {
+	    pattern: "Enter a valid password"
+    	}
+  		
+	},
+	errorClass: "text-danger"
+	});
 
  })
